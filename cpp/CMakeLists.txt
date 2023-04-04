@@ -1,0 +1,12 @@
+set(GHOLI_SOURCE_DIR ${PROJECT_SOURCE_DIR}/cpp)
+set(GHOLI_BINARY_DIR ${PROJECT_BINARY_DIR}/cpp)
+include_directories(${LLVM_INCLUDE_DIRS})
+include_directories(${MLIR_INCLUDE_DIRS})
+include_directories(${GHOLI_SOURCE_DIR}/include)
+include_directories(${GHOLI_BINARY_DIR}/include)
+link_directories(${LLVM_BUILD_LIBRARY_DIR})
+add_definitions(${LLVM_DEFINITIONS})
+
+add_subdirectory(python_ext)
+add_subdirectory(include)
+add_subdirectory(lib)

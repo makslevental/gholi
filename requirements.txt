@@ -1,0 +1,5 @@
+-f https://github.com/makslevental/nelli/releases/expanded_assets/0.0.8
+nelli
+
+numpy
+pytest

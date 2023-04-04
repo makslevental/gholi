@@ -1,0 +1,12 @@
+_mlir_libs
+src
+lib
+runtime
+execution_engine.py
+ir.py
+passmanager.py
+
+dialects/*
+!dialects/gholi.py
+!dialects/GholiOps.td
+!dialects/_ods_common.py
