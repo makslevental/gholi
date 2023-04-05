@@ -35,11 +35,6 @@ add_mlir_python_modules(GholiPythonModules
         INSTALL_PREFIX "."
         DECLARED_SOURCES ${_source_components})
 
-# find the directory where the python bindings IRModule.h lives
-# and add it as an include directory in order to extend/play with the bindings
-get_target_property(mlir_python_sources MLIRPythonExtension.Core INTERFACE_SOURCES)
-list(GET mlir_python_sources 0 HEADER)
-get_filename_component(header_dir ${HEADER} DIRECTORY)
-list(FILTER mlir_python_sources INCLUDE REGEX "(PybindUtils)\\.cpp")
-target_sources(GholiPythonSources.Extension INTERFACE ${mlir_python_sources})
-target_include_directories(GholiPythonSources.Extension INTERFACE ${header_dir})
+set(PYBINDINGS_SRC "${MLIR_INSTALL_PREFIX}/src/python/MLIRPythonExtension.Core")
+target_include_directories(GholiPythonSources.Extension INTERFACE "${PYBINDINGS_SRC}")
+target_sources(GholiPythonSources.Extension INTERFACE "${PYBINDINGS_SRC}/PybindUtils.cpp")
